@@ -1,0 +1,177 @@
+/* =============================== THEME VARIABLES =================================*/
+:root {
+  /* Dark mode (default) */
+  --bg-color: #161719;
+  --text-color: #ffffff;
+  --button-text-color: #fff;
+  --accent-color: #6725d9;
+  --accent-hover: #793be4;
+  --video-bg: #6725d9;
+  --placeholder-bg: #9568e3;
+  --label-color: #7ed6df;
+  --shadow-color: rgba(247, 247, 247, 0.5);
+  --mic-bg: #222;
+  --mic-gradient: linear-gradient(90deg, #7ed6df 0%, #00b894 100%);
+  --border-color: gray;
+}
+
+/* Light mode overrides */
+.light-mode {
+  --bg-color: #bd9df6;
+  --text-color: #fffbfb;
+  --button-text-color: #fff;
+  /* Keep same accent colors as dark mode */
+  --accent-color: #6725d9;
+  --accent-hover: #793be4;
+  --video-bg: #6725d9;
+  --placeholder-bg: #ceb3fc;
+  --label-color: #f5f5f5;
+  --shadow-color: rgba(0, 0, 0, 0.2);
+  --mic-bg: #ddd;
+  --mic-gradient: linear-gradient(90deg, #4a90e2 0%, #50e3c2 100%);
+  --border-color: #ccc;
+}
+/* =============================== STYLES =================================*/
+.video-call-panel {
+  border: 1px solid var(--border-color);
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  min-width: 320px;
+  background: var(--bg-color);
+  color: var(--text-color);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px var(--shadow-color);
+  z-index: 1000;
+  padding: 0.5rem 1rem 1rem 1rem;
+  cursor: grab;
+  user-select: none;
+}
+.video-call-header {
+  cursor: grab;
+  background: var(--accent-color);
+  border-radius: 8px 8px 0 0;
+  padding: 0.5rem;
+  margin: -0.5rem -1rem 0.5rem -1rem;
+  text-align: center;
+  color: var(--button-text-color);
+}
+.video-call-controls {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  justify-content: center;
+}
+.video-call-controls button {
+  background: var(--accent-color);
+  color: var(--button-text-color);
+  border: none;
+  border-radius: 4px;
+  padding: 0.6rem 0.8rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.video-call-controls button:hover {
+  background: var(--accent-hover);
+}
+.video-call-videos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+.video-tile {
+  background: var(--video-bg);
+  border-top-left-radius: 10rem;
+  border-top-right-radius: 10rem;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  padding: 0.3rem;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  position: relative;
+}
+.video-tile video {
+  width: 90px;
+  height: 70px;
+  border-radius: 4px;
+  background: #000;
+  object-fit: cover;
+}
+.video-placeholder {
+  width: 82px;
+  height: 67px;
+  background: var(--placeholder-bg);
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-left-radius: 10rem;
+  border-top-right-radius: 10rem;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  font-size: 2.5rem;
+}
+.video-label {
+  font-size: 0.85rem;
+  margin-top: 0.2rem;
+  text-align: center;
+  color: var(--label-color);
+}
+.mic-volume-bar {
+  display: inline-block;
+  vertical-align: middle;
+  width: 40px;
+  height: 8px;
+  background: var(--mic-bg);
+  border-radius: 4px;
+  margin-left: 6px;
+  overflow: hidden;
+}
+.mic-volume-fill {
+  display: block;
+  height: 100%;
+  background: var(--mic-gradient);
+  border-radius: 4px;
+  transition: width 0.1s linear;
+}
+
+/* New styles for improved microphone UI */
+.initializing-indicator {
+  font-size: 0.7rem;
+  margin-left: 0.5rem;
+  opacity: 0.8;
+}
+
+.media-error {
+  background: #ff4757;
+  color: white;
+  padding: 0.4rem;
+  margin: 0.5rem 0;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.video-call-controls button.active {
+  background: #00b894;
+}
+
+.video-call-controls button.active:hover {
+  background: #00a085;
+}
+
+.video-call-controls button:disabled {
+  background: #666;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.video-call-controls button:disabled:hover {
+  background: #666;
+}
